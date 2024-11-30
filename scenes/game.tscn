@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://boon40uj7183r"]
+[gd_scene load_steps=3 format=3 uid="uid://boon40uj7183r"]
 
 [ext_resource type="PackedScene" uid="uid://b6fivapgxnbi6" path="res://scenes/player.tscn" id="1_m6nq7"]
+[ext_resource type="PackedScene" uid="uid://whn2wd2dt6du" path="res://scenes/zombie.tscn" id="2_yyrmd"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,7 @@ position = Vector2(0, 0)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
+
+[node name="Zombie" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_yyrmd")]
+position = Vector2(86, 49)
+target = NodePath("../Player")

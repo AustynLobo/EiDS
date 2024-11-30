@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+@export var speed = 300.0
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if direction.x:
 			_animated_sprite.flip_h = direction.x < 0
-		velocity = direction * SPEED
+		velocity = direction * speed
 		_animated_sprite.play("move")
 	else:
 		velocity = Vector2.ZERO
