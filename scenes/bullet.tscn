@@ -19,17 +19,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fiefl"]
-radius = 2.11111
-height = 7.80952
+radius = 0.171249
+height = 3.36376
 
 [node name="Bullet" type="RigidBody2D"]
+rotation = 1.5708
+scale = Vector2(0.76, 1)
+gravity_scale = 0.0
 script = ExtResource("1_o27ft")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-0.231302, 0.129808)
 sprite_frames = SubResource("SpriteFrames_k8qn1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 20)
+position = Vector2(-0.5, 3)
 rotation = 1.5708
-scale = Vector2(9, -1.339)
+scale = Vector2(5.83947, 0.782333)
 shape = SubResource("CapsuleShape2D_fiefl")

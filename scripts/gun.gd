@@ -5,6 +5,10 @@ extends Node2D
 
 @onready var _sprite = $Sprite2D
 
+
+@export var muzzle_speed = 10
+@export var millis_between_shots = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +17,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		print("You have fired the gun!")
 
-	
+
 
 
 
