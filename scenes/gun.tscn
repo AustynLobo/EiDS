@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://scenes/gun.gd" id="1_qhab2"]
 [ext_resource type="Texture2D" uid="uid://cq1go61dce3xh" path="res://assets/guns.png" id="2_jx8ls"]
 
-[node name="Gun" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="Gun" type="Node2D"]
 script = ExtResource("1_qhab2")
-player = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
