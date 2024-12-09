@@ -4,8 +4,9 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_m6nq7")]
+[node name="Player" parent="." node_paths=PackedStringArray("game") instance=ExtResource("1_m6nq7")]
 position = Vector2(0, 0)
+game = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.25, 1.25)

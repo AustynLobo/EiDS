@@ -3,11 +3,16 @@
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_qhab2"]
 [ext_resource type="Texture2D" uid="uid://cq1go61dce3xh" path="res://assets/guns.png" id="2_jx8ls"]
 
-[node name="Gun" type="Node2D"]
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("muzzle")]
 script = ExtResource("1_qhab2")
+muzzle = NodePath("Muzzle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_jx8ls")
 region_enabled = true
 region_rect = Rect2(10, 10, 119, 82)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(8, 0)

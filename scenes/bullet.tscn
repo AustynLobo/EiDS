@@ -1,39 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8yh2j27l4r10"]
+[gd_scene load_steps=4 format=3 uid="uid://b8yh2j27l4r10"]
 
 [ext_resource type="Texture2D" uid="uid://cq1go61dce3xh" path="res://assets/guns.png" id="1_doa6v"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_o27ft"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsou5"]
-atlas = ExtResource("1_doa6v")
-region = Rect2(504, 0, 28, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k8qn1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsou5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fiefl"]
-radius = 0.171249
-height = 3.36376
+radius = 0.171248
+height = 10.2258
 
-[node name="Bullet" type="RigidBody2D"]
-rotation = 1.5708
-scale = Vector2(0.76, 1)
-gravity_scale = 0.0
+[node name="Bullet" type="Area2D"]
 script = ExtResource("1_o27ft")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(-0.231302, 0.129808)
-sprite_frames = SubResource("SpriteFrames_k8qn1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3)
 rotation = 1.5708
 scale = Vector2(5.83947, 0.782333)
 shape = SubResource("CapsuleShape2D_fiefl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_doa6v")
+region_enabled = true
+region_rect = Rect2(512, 51, 16, 40)
