@@ -1,11 +1,10 @@
 extends Node2D
 
 @export var player_distance: float = 20
-@export var player: Node2D
+@onready var player = get_parent()
 
 @onready var _sprite = $Sprite2D
 
-@export var muzzle: Node2D
 @export var millis_between_shots = 100
 
 # Called when the node enters the scene tree for the first time.
