@@ -77,6 +77,5 @@ sprite_frames = SubResource("SpriteFrames_hgby3")
 animation = &"move"
 frame_progress = 0.983208
 
-[node name="Gun" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_4vg5v")]
+[node name="Gun" parent="." instance=ExtResource("3_4vg5v")]
 scale = Vector2(0.8, 0.8)
-player = NodePath("..")

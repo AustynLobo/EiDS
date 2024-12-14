@@ -7,7 +7,11 @@
 script = ExtResource("1_qhab2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_jx8ls")
 region_enabled = true
 region_rect = Rect2(10, 10, 119, 82)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(8, 0)
