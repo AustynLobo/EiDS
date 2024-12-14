@@ -245,7 +245,6 @@ texture = ExtResource("1_inrxc")
 
 [sub_resource type="TileSet" id="TileSet_npiay"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_7im4d")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yslhh"]
@@ -496,7 +495,7 @@ texture = SubResource("CompressedTexture2D_yslhh")
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.25, 3.8125, 11.6875, 4.3125, 11.875, 8.125, -11.9375, 7.6875)
 
 [sub_resource type="TileSet" id="TileSet_7bxqs"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_of0dw")
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_n0ef4"]
 [ext_resource type="Texture2D" uid="uid://dujl3ym4k0g12" path="res://assets/Apocalypse Character Pack/Zombie/Idle.png" id="2_gau4c"]
 [ext_resource type="Texture2D" uid="uid://dykdyil8glvr6" path="res://assets/Apocalypse Character Pack/Zombie/Walk.png" id="3_4fp8v"]
-[ext_resource type="PackedScene" uid="uid://drvjaqmj85txn" path="res://scenes/health_system.tscn" id="4_4vd4f"]
+[ext_resource type="PackedScene" path="res://scenes/health_system.tscn" id="4_4vd4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n3rc"]
 size = Vector2(14, 26)
@@ -128,6 +128,8 @@ animations = [{
 
 [node name="Zombie" type="CharacterBody2D"]
 position = Vector2(337, 176)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_n0ef4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

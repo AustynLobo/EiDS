@@ -8,6 +8,7 @@ radius = 0.171248
 height = 10.2258
 
 [node name="Bullet" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_o27ft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,3 +22,5 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_doa6v")
 region_enabled = true
 region_rect = Rect2(512, 51, 16, 40)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

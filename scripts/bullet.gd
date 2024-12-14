@@ -13,3 +13,6 @@ func _process(delta: float) -> void:
 	translate(velocity * delta)
 	rotation = direction.angle()
 	
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()
