@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://whn2wd2dt6du"]
+[gd_scene load_steps=23 format=3 uid="uid://whn2wd2dt6du"]
 
 [ext_resource type="Script" path="res://scenes/zombie.gd" id="1_n0ef4"]
 [ext_resource type="Texture2D" uid="uid://dujl3ym4k0g12" path="res://assets/Apocalypse Character Pack/Zombie/Idle.png" id="2_gau4c"]
@@ -125,9 +125,17 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Zombie" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ourfn"]
+radius = 201.01
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3f21"]
+radius = 372.034
+
+[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 position = Vector2(337, 176)
+collision_mask = 7
 script = ExtResource("1_n0ef4")
+nav_agent = NodePath("Navigation/NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -137,3 +145,34 @@ shape = SubResource("RectangleShape2D_8n3rc")
 sprite_frames = SubResource("SpriteFrames_hgby3")
 animation = &"move"
 frame_progress = 0.28732
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+debug_enabled = true
+
+[node name="RecalculateTimer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+autostart = true
+
+[node name="Aggro" type="Node2D" parent="."]
+
+[node name="AggroRange" type="Area2D" parent="Aggro"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/AggroRange"]
+shape = SubResource("CircleShape2D_ourfn")
+
+[node name="DeaggroRange" type="Area2D" parent="Aggro"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/DeaggroRange"]
+shape = SubResource("CircleShape2D_r3f21")
+
+[connection signal="timeout" from="Navigation/RecalculateTimer" to="." method="_on_recalculate_timer_timeout"]
+[connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
+[connection signal="body_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_body_entered"]
+[connection signal="area_exited" from="Aggro/DeaggroRange" to="." method="_on_deaggro_range_area_exited"]
+[connection signal="body_exited" from="Aggro/DeaggroRange" to="." method="_on_deaggro_range_body_exited"]
