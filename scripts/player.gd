@@ -9,6 +9,11 @@ var bullet_TSCN = preload("res://scenes/bullet.tscn")
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
+var camera: Camera2D
+
+func _ready() -> void:
+	camera = get_node_or_null("Camera2D")
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		var bullet_ins: Area2D = bullet_TSCN.instantiate()
@@ -29,3 +34,11 @@ func _physics_process(delta: float) -> void:
 		_animated_sprite.play("idle")
 
 	move_and_slide()
+
+
+func _on_health_system_health_depleted() -> void:
+	if camera:
+		self.remove_child(camera)
+		get_parent().add_child(camera)
+		camera.global_position = global_position
+	queue_free()
