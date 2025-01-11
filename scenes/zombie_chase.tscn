@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6oa30df7j2hy"]
+
+[ext_resource type="AudioStream" uid="uid://cojxrb4x1yqqb" path="res://assets/sounds/zombie-chase.wav" id="1_r0qib"]
+
+[node name="ZombieChase" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_r0qib")
+autoplay = true
