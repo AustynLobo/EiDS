@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var target: Node2D
-@export var max_zombies = 50
-@export var max_zombies_per_spawn = 20
+@export var max_zombies = 30
+@export var max_zombies_per_spawn = 5
 @export var disable_distance = 400
 
 @onready var spawn_timer = $SpawnTimer
@@ -25,8 +25,10 @@ func _process(delta: float) -> void:
 	pass
 	
 func spawn_zombies():
+	var existing_zombies = zombies.get_child_count()
+	
 	var i = 0
-	while i < max_zombies_per_spawn:
+	while i < max_zombies_per_spawn and existing_zombies + i < max_zombies:
 		var spawn_point: Node2D = spawn_points.pick_random()
 		if spawn_point.global_position.distance_to(target.global_position) <= disable_distance:
 			continue
