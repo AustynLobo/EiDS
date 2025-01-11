@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 var bullet_TSCN = preload("res://scenes/bullet.tscn")
 @export var game : Node2D
-
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
@@ -15,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		game.add_child(bullet_ins)
 		bullet_ins.global_position = muzzle.global_position
 		bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
-	
+		$Pistol_Shoot.play()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("left", "right", "up", "down")

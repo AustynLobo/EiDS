@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6fivapgxnbi6"]
+[gd_scene load_steps=14 format=3 uid="uid://b6fivapgxnbi6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tbmvo"]
 [ext_resource type="Texture2D" uid="uid://c0icjpb8fwiro" path="res://assets/Apocalypse Character Pack/Player/Idle.png" id="2_aafx4"]
 [ext_resource type="PackedScene" uid="uid://1gj34y8w6fj3" path="res://scenes/gun.tscn" id="3_4vg5v"]
 [ext_resource type="Texture2D" uid="uid://dv4rposwjbat1" path="res://assets/Apocalypse Character Pack/Player/Walk.png" id="3_ww8bx"]
+[ext_resource type="AudioStream" uid="uid://dy1vcaf4hg3if" path="res://assets/audio/pistol_shoot.wav" id="5_k1dah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n3rc"]
 size = Vector2(16, 28)
@@ -79,3 +80,7 @@ frame_progress = 0.983208
 
 [node name="Gun" parent="." instance=ExtResource("3_4vg5v")]
 scale = Vector2(0.8, 0.8)
+
+[node name="Pistol_Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_k1dah")
+volume_db = -9.067
