@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var mouse_vector = get_global_mouse_position() - player.position
 	
 	if (mouse_vector.length() >= player_distance):

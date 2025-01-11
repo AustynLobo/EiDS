@@ -9,17 +9,24 @@ var bullet_TSCN = preload("res://scenes/bullet.tscn")
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
 
+@onready var melee_attack_animation = $MeleeAttack/AttackAnimation
+
 var camera: Camera2D
 
 func _ready() -> void:
 	camera = get_node_or_null("Camera2D")
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
+	if not melee_attack_animation.is_playing() and Input.is_action_just_pressed("shoot"):
 		var bullet_ins: Area2D = bullet_TSCN.instantiate()
 		game.add_child(bullet_ins)
 		bullet_ins.global_position = muzzle.global_position
 		bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
+	
+	if melee_attack_animation.is_playing():
+		gun.visible = false
+	else:
+		gun.visible = true
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
