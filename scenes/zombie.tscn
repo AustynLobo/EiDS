@@ -191,7 +191,7 @@ animations = [{
 
 [node name="Zombie" type="CharacterBody2D"]
 position = Vector2(337, 176)
-collision_mask = 2
+collision_mask = 6
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_n0ef4")
