@@ -13,14 +13,18 @@ extends CharacterBody2D
 @onready var _attack_progress_animation: AnimationPlayer = $AttackArea/AttackProgressPolygon/AnimationPlayer
 @onready var _attack_timer: Timer = $AttackArea/Timer
 @onready var _cooldown_timer: Timer = $AttackArea/CooldownTimer
+@onready var _swipe_animation: AnimatedSprite2D = $SwipeAnimation
 
 var target_health_system = null
 
 var is_attacking = false
 var target_in_range = false
 
+var swipe_x
+
 func _ready() -> void:
 	target_health_system = target.get_node_or_null("HealthSystem")
+	swipe_x = _swipe_animation.position.x
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(target) and not is_attacking:
@@ -61,6 +65,11 @@ func animate():
 	else:
 		_animated_sprite.play("move")
 		_animated_sprite.flip_h = velocity.x < 0
+	
+	if (_swipe_animation.is_playing()):
+		_swipe_animation.visible = true
+	else:
+		_swipe_animation.visible = false
 		
 	_attack_polygon.visible = is_attacking
 
@@ -78,6 +87,12 @@ func _on_attack_timer_timeout() -> void:
 	is_attacking = false
 	_attack_progress_animation.stop()
 	_cooldown_timer.start()
+	
+	_swipe_animation.play()
+	if _attack_area.rotation >= -PI / 2 and _attack_area.rotation <= PI / 2:
+		_swipe_animation.position.x = swipe_x
+	else:
+		_swipe_animation.position.x = -swipe_x
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body == target:
