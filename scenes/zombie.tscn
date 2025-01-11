@@ -123,8 +123,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur4xc"]
-radius = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_gegji"]
 
 [node name="Zombie" type="CharacterBody2D"]
 position = Vector2(337, 176)
@@ -140,7 +139,7 @@ frame_progress = 0.28732
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
-shape = SubResource("CapsuleShape2D_ur4xc")
+shape = SubResource("CircleShape2D_gegji")
 
 [node name="HealthSystem" parent="." instance=ExtResource("4_4vd4f")]
 
