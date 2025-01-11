@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wedxcuohp3q2" path="res://scenes/map.tscn" id="1_i5jqg"]
 [ext_resource type="PackedScene" uid="uid://b6fivapgxnbi6" path="res://scenes/player.tscn" id="1_m6nq7"]
-[ext_resource type="PackedScene" uid="uid://whn2wd2dt6du" path="res://scenes/zombie.tscn" id="3_55mch"]
+[ext_resource type="PackedScene" uid="uid://4d000w0qhyhj" path="res://scenes/wave_manager.tscn" id="3_61sqs"]
 
 [node name="Game" type="Node2D"]
 
@@ -17,6 +17,32 @@ zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Zombie" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_55mch")]
-position = Vector2(404, 216)
+[node name="WaveManager" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
+
+[node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
+position = Vector2(-253, -135)
+
+[node name="SpawnPoint1" type="Node2D" parent="WaveManager"]
+position = Vector2(-80, 218)
+
+[node name="SpawnPoint2" type="Node2D" parent="WaveManager"]
+position = Vector2(472, 0)
+
+[node name="SpawnPoint3" type="Node2D" parent="WaveManager"]
+position = Vector2(-214, -466)
+
+[node name="SpawnPoint4" type="Node2D" parent="WaveManager"]
+position = Vector2(299, -322)
+
+[node name="SpawnPoint5" type="Node2D" parent="WaveManager"]
+position = Vector2(446, 458)
+
+[node name="SpawnPoint6" type="Node2D" parent="WaveManager"]
+position = Vector2(-3, 473)
+
+[node name="SpawnPoint7" type="Node2D" parent="WaveManager"]
+position = Vector2(-483, 130)
+
+[node name="SpawnPoint8" type="Node2D" parent="WaveManager"]
+position = Vector2(514, -502)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://4d000w0qhyhj"]
+
+[ext_resource type="Script" path="res://scenes/wave_manager.gd" id="1_03eka"]
+
+[node name="WaveManager" type="Node2D"]
+script = ExtResource("1_03eka")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Zombies" type="Node2D" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
