@@ -3,10 +3,7 @@
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_n0ef4"]
 [ext_resource type="Texture2D" uid="uid://dujl3ym4k0g12" path="res://assets/Apocalypse Character Pack/Zombie/Idle.png" id="2_gau4c"]
 [ext_resource type="Texture2D" uid="uid://dykdyil8glvr6" path="res://assets/Apocalypse Character Pack/Zombie/Walk.png" id="3_4fp8v"]
-[ext_resource type="PackedScene" path="res://scenes/health_system.tscn" id="4_4vd4f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n3rc"]
-size = Vector2(14, 26)
+[ext_resource type="PackedScene" uid="uid://drvjaqmj85txn" path="res://scenes/health_system.tscn" id="4_4vd4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8eqb"]
 atlas = ExtResource("2_gau4c")
@@ -126,19 +123,21 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur4xc"]
+radius = 9.0
+
 [node name="Zombie" type="CharacterBody2D"]
 position = Vector2(337, 176)
-collision_layer = 3
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_n0ef4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_8n3rc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hgby3")
 animation = &"move"
 frame_progress = 0.28732
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_ur4xc")
 
 [node name="HealthSystem" parent="." instance=ExtResource("4_4vd4f")]
