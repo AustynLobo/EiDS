@@ -32,6 +32,9 @@ func take_damage(damage: float) -> float:
 	invulnerability_timer.start()
 	return damage_taken
 
+func set_max_health(amount: float):
+	max_health = amount
+	current_health = amount
 
 func heal(amount: float) -> float:
 	return take_damage(-amount)

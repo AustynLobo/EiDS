@@ -2,7 +2,7 @@ extends Area2D
 
 @export var muzzle_speed = 100
 var direction: Vector2 = Vector2.RIGHT
-var damage = 34
+var damage = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

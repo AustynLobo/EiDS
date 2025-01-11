@@ -2,11 +2,13 @@ extends Node2D
 
 @export var target: Node2D
 @export var max_zombies = 30
-@export var max_zombies_per_spawn = 5
+@export var max_zombies_per_spawn = 10
 @export var disable_distance = 400
 
 @onready var spawn_timer = $SpawnTimer
 @onready var zombies = $Zombies
+
+var spawned_zombies = 0
 
 var zombie_scene = preload("res://scenes/zombie.tscn")
 
@@ -24,23 +26,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func spawn_zombies():
-	var existing_zombies = zombies.get_child_count()
-	
+func spawn_zombies():	
 	var i = 0
-	while i < max_zombies_per_spawn and existing_zombies + i < max_zombies:
+	while i < max_zombies_per_spawn and spawned_zombies < max_zombies:
 		var spawn_point: Node2D = spawn_points.pick_random()
-		if spawn_point.global_position.distance_to(target.global_position) <= disable_distance:
+		if is_instance_valid(target) and spawn_point.global_position.distance_to(target.global_position) <= disable_distance:
 			continue
 	
-		var offset = Vector2(randf_range(-20, 20), randf_range(-20, 20))
+		var offset = Vector2(randf_range(-10, 10), randf_range(-10, 10))
 		
 		var zombie = zombie_scene.instantiate()
 		zombie.global_position = spawn_point.global_position + offset
 		zombie.target = target
+
+		zombie.scale_factor = randf_range(0.8, 1.7)
 		
 		zombies.add_child(zombie)
 		i += 1
+		spawned_zombies += 1
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_zombies()

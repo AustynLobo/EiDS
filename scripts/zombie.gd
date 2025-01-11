@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+@export var scale_factor = 1.0
 @export var damage = 20.0
-@export var speed = 50.0
+@export var speed = 70
 @export var target: Node2D
 @export var stopping_distance: float = 40.0
+
+@onready var health_system = $HealthSystem
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D
@@ -25,6 +28,11 @@ var swipe_x
 func _ready() -> void:
 	target_health_system = target.get_node_or_null("HealthSystem")
 	swipe_x = _swipe_animation.position.x
+
+	scale *= scale_factor
+	damage = damage + ((scale_factor - 1) * damage) / 1.5
+	speed = speed - ((scale_factor - 1) * speed) / 0.8
+	health_system.set_max_health(health_system.max_health + ((scale_factor - 1) * health_system.max_health) / 0.8 - 50)
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(target) and not is_attacking:

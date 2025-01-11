@@ -195,7 +195,6 @@ collision_mask = 6
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_n0ef4")
-speed = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hgby3")
@@ -241,7 +240,7 @@ libraries = {
 polygon = PackedVector2Array(12, -5, 12, 10, 38, 20, 38, -15)
 
 [node name="Timer" type="Timer" parent="AttackArea"]
-wait_time = 0.66
+wait_time = 0.8
 one_shot = true
 
 [node name="SwipeAnimation" type="AnimatedSprite2D" parent="."]

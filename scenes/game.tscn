@@ -10,6 +10,8 @@
 
 [node name="Player" parent="." node_paths=PackedStringArray("game") instance=ExtResource("1_m6nq7")]
 position = Vector2(22, 0)
+motion_mode = 1
+wall_min_slide_angle = 0.0
 game = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -19,6 +21,7 @@ position_smoothing_speed = 10.0
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
+max_zombies_per_spawn = 13
 
 [node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
 position = Vector2(-253, -135)
