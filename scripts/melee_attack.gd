@@ -7,10 +7,11 @@ extends Node2D
 @onready var attack_animation = $AttackAnimation
 @onready var area = $Area2D
 
+var gun
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	gun = player.get_node("Gun")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -25,8 +26,13 @@ func _physics_process(delta: float) -> void:
 			if body == get_parent():
 				continue
 			var health_system = body.get_node_or_null("HealthSystem")
+			
 			if health_system:
+				var alive_before = health_system.is_alive()
 				health_system.take_damage(damage)
+				var alive_after = health_system.is_alive()
+				if alive_before and not alive_after:
+					gun.add_ammo(3)
 	
 	if attack_animation.is_playing():
 		attack_animation.flip_v = mouse_vector.y < 0

@@ -5,7 +5,9 @@ extends Node2D
 
 @onready var _sprite = $Sprite2D
 
-@export var millis_between_shots = 100
+@export var max_ammo = 60
+
+@onready var current_ammo = max_ammo / 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,3 +25,6 @@ func _physics_process(delta: float) -> void:
 		_sprite.flip_v = mouse_vector.x < 0
 		_sprite.position.y = -4 if mouse_vector.x < 0 else 4
 	
+func add_ammo(amount):
+	current_ammo = clamp(current_ammo + amount, 0, max_ammo)
+	print(current_ammo)

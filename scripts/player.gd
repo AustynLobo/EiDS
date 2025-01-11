@@ -8,6 +8,7 @@ var bullet_TSCN = preload("res://scenes/bullet.tscn")
 
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
+@onready var gun_timer: Timer = $Gun/ShotTimer
 
 @onready var melee_attack_animation = $MeleeAttack/AttackAnimation
 
@@ -18,10 +19,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not melee_attack_animation.is_playing() and Input.is_action_just_pressed("shoot"):
-		var bullet_ins: Area2D = bullet_TSCN.instantiate()
-		game.add_child(bullet_ins)
-		bullet_ins.global_position = muzzle.global_position
-		bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
+		if gun_timer.is_stopped():
+			if gun.current_ammo > 0:
+				var bullet_ins: Area2D = bullet_TSCN.instantiate()
+				game.add_child(bullet_ins)
+				bullet_ins.global_position = muzzle.global_position
+				bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
+				gun_timer.start()
+				gun.current_ammo -= 1
+		print(gun.current_ammo)
 	
 	if melee_attack_animation.is_playing():
 		gun.visible = false

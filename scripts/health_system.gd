@@ -22,7 +22,7 @@ func take_damage(damage: float) -> float:
 	if not invulnerability_timer.is_stopped():
 		return 0
 		
-	var new_health = clamp(0, current_health - damage, max_health)
+	var new_health = clamp(current_health - damage, 0, max_health)
 	var damage_taken = current_health - new_health
 	current_health = new_health
 	

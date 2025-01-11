@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal zombie_dead
+
 @export var scale_factor = 1.0
 @export var damage = 20.0
 @export var speed = 70
@@ -108,4 +110,5 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 
 func _on_health_system_health_depleted() -> void:
+	target.get_node("Gun").add_ammo(randi_range(0, 6))
 	queue_free()
