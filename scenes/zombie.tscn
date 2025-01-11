@@ -249,6 +249,7 @@ sprite_frames = SubResource("SpriteFrames_p0g8y")
 frame = 4
 frame_progress = 1.0
 
+[connection signal="health_depleted" from="HealthSystem" to="." method="_on_health_system_health_depleted"]
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_nav_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

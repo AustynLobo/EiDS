@@ -97,3 +97,7 @@ func _on_attack_timer_timeout() -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body == target:
 		target_in_range = false
+
+
+func _on_health_system_health_depleted() -> void:
+	queue_free()
