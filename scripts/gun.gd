@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var _sprite = $Sprite2D
 
-@export var max_ammo = 60
+@export var max_ammo = 30
 
 @onready var current_ammo = max_ammo / 2
 
