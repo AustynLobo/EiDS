@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drvjaqmj85txn"]
+[gd_scene load_steps=3 format=3 uid="uid://q16a1ubr4c2a"]
 
 [ext_resource type="Script" path="res://scripts/health_system.gd" id="1_yeego"]
+[ext_resource type="AudioStream" uid="uid://l7e82dh0flu5" path="res://assets/sounds/player_getting_hurt.wav" id="2_cdjoq"]
 
 [node name="HealthSystem" type="Node2D"]
 script = ExtResource("1_yeego")
@@ -8,3 +9,6 @@ script = ExtResource("1_yeego")
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 wait_time = 0.33
 one_shot = true
+
+[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cdjoq")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/zombie.gd" id="1_n0ef4"]
 [ext_resource type="Texture2D" uid="uid://dujl3ym4k0g12" path="res://assets/Apocalypse Character Pack/Zombie/Idle.png" id="2_gau4c"]
 [ext_resource type="Texture2D" uid="uid://dykdyil8glvr6" path="res://assets/Apocalypse Character Pack/Zombie/Walk.png" id="3_4fp8v"]
-[ext_resource type="PackedScene" uid="uid://drvjaqmj85txn" path="res://scenes/health_system.tscn" id="4_4vd4f"]
+[ext_resource type="PackedScene" uid="uid://q16a1ubr4c2a" path="res://scenes/health_system.tscn" id="4_4vd4f"]
 [ext_resource type="Texture2D" uid="uid://dh4e15wi7tl2y" path="res://assets/SP301_nyknck/SP301_05.png" id="5_v0vcf"]
 [ext_resource type="Texture2D" uid="uid://binblfx546n5h" path="res://assets/SP301_nyknck/SP301_04.png" id="6_vtohn"]
 [ext_resource type="Texture2D" uid="uid://kwpst1ypex2k" path="res://assets/SP301_nyknck/SP301_03.png" id="7_xx7tk"]
@@ -130,21 +130,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gegji"]
 
-[sub_resource type="Animation" id="Animation_xyqco"]
-resource_name = "ZombieAttackProgress"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:polygon")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [PackedVector2Array(12, -1, 12, -1, 12, 14, 12, 14), PackedVector2Array(12, -1, 38, -11, 38, 24, 12, 14)]
-}
-
 [sub_resource type="Animation" id="Animation_v34hj"]
 length = 0.001
 tracks/0/type = "value"
@@ -158,6 +143,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [PackedVector2Array(12, -1, 12, -1, 12, 14, 12, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_xyqco"]
+resource_name = "ZombieAttackProgress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(12, -1, 12, -1, 12, 14, 12, 14), PackedVector2Array(12, -1, 38, -11, 38, 24, 12, 14)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1qad"]

@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 			if gun.current_ammo > 0:
 				var bullet_ins: Area2D = bullet_TSCN.instantiate()
 				game.add_child(bullet_ins)
+				$Gun/GunShoot.play()
 				bullet_ins.global_position = muzzle.global_position
 				bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
 				gun_timer.start()
@@ -51,7 +52,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_health_system_health_depleted() -> void:
 	if camera:
-		self.remove_child(camera)
+		self.remove_child(camera)		
 		get_parent().add_child(camera)
 		camera.global_position = global_position
+	
 	queue_free()

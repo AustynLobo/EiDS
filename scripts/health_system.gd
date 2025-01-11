@@ -25,6 +25,7 @@ func take_damage(damage: float) -> float:
 	var new_health = clamp(current_health - damage, 0, max_health)
 	var damage_taken = current_health - new_health
 	current_health = new_health
+	$PlayerHurt.play()
 	
 	if current_health == 0:
 		health_depleted.emit()
