@@ -7,6 +7,7 @@ extends Node2D
 
 signal health_depleted
 signal took_damage
+signal health_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +33,7 @@ func take_damage(damage: float) -> float:
 	
 	invulnerability_timer.start()
 	
+	health_changed.emit()
 	took_damage.emit()
 	
 	return damage_taken
@@ -41,7 +43,11 @@ func set_max_health(amount: float):
 	current_health = amount
 
 func heal(amount: float) -> float:
-	return take_damage(-amount)
+	var new_health = clamp(current_health + amount, 0, max_health)
+	var amount_healed = new_health - current_health
+	current_health = new_health
+	health_changed.emit()
+	return amount_healed
 
 
 func is_alive() -> bool:

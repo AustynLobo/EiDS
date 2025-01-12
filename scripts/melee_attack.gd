@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("melee"):
 		attack_animation.play()
-		var ammo_gained = 0
+
 		for body in area.get_overlapping_bodies():
 			if body == get_parent():
 				continue
@@ -33,8 +33,8 @@ func _physics_process(delta: float) -> void:
 				health_system.take_damage(damage)
 				var alive_after = health_system.is_alive()
 				if alive_before and not alive_after:
-					ammo_gained += 6
-		gun.add_ammo(min(ammo_gained, 6))
+					gun.add_ammo(6)
+					player.get_node("HealthSystem").heal(15)
 	
 	if attack_animation.is_playing():
 		attack_animation.flip_v = mouse_vector.y < 0

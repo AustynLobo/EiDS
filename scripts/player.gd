@@ -65,5 +65,8 @@ func _on_health_system_health_depleted() -> void:
 
 
 func _on_health_system_took_damage() -> void:
-	hud.update_health(health_system.current_health)
 	$PlayerHurt.play()
+
+
+func _on_health_system_health_changed() -> void:
+	hud.update_health(health_system.current_health)
