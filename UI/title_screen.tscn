@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0icjpb8fwiro" path="res://assets/Apocalypse Character Pack/Player/Idle.png" id="2_07gbk"]
 [ext_resource type="Script" path="res://UI/new_game.gd" id="2_md1x6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u810d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2f6u"]
 texture = ExtResource("1_oua1k")
 0:0/0 = 0
 1:0/0 = 0
@@ -247,7 +247,7 @@ texture = ExtResource("1_oua1k")
 [sub_resource type="TileSet" id="TileSet_v66ya"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
-sources/0 = SubResource("TileSetAtlasSource_u810d")
+sources/0 = SubResource("TileSetAtlasSource_k2f6u")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfwmp"]
 atlas = ExtResource("2_07gbk")
@@ -337,7 +337,7 @@ script = ExtResource("2_md1x6")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_2ig5k")
 theme_override_font_sizes/font_size = 43
-text = "Old Memories"
+text = "credits"
 
 [node name="ExitGame" type="Button" parent="VBox"]
 layout_mode = 2

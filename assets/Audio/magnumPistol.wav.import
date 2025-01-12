@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dif4sgb4p0mkw"
-path="res://.godot/imported/magnumPistol.wav-bc1aeb39932845915a63bdb462d158a7.sample"
+path="res://.godot/imported/magnumPistol.wav-564855a62bf315924aadb145a6608249.sample"
 
 [deps]
 
-source_file="res://assets/Audio/magnumPistol.wav"
-dest_files=["res://.godot/imported/magnumPistol.wav-bc1aeb39932845915a63bdb462d158a7.sample"]
+source_file="res://assets/audio/magnumPistol.wav"
+dest_files=["res://.godot/imported/magnumPistol.wav-564855a62bf315924aadb145a6608249.sample"]
 
 [params]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpu8xb3i4ujqv"]
+[gd_scene load_steps=3 format=3 uid="uid://bpu8xb3i4ujqv"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_5tpfy"]
+[ext_resource type="FontFile" uid="uid://p4ufrjibidqs" path="res://assets/SRAFreePixelFontPack/PixelMiddle.ttf" id="2_iyvct"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5tpfy")
@@ -17,6 +18,8 @@ offset_right = 0.36792
 offset_bottom = -0.280029
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
 text = "Health: 0/0"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -33,6 +36,8 @@ offset_right = 0.36792
 offset_bottom = -32.28
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
 text = "Ammo: 0/0"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -45,6 +50,8 @@ offset_left = -54.0
 offset_right = 54.0
 offset_bottom = 34.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
 text = "Wave: 0/0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -59,6 +66,8 @@ offset_right = 79.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
 text = "Zombies killed: 0/0"
 horizontal_alignment = 1
 vertical_alignment = 1
