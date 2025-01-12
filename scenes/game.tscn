@@ -24,35 +24,35 @@ position_smoothing_speed = 10.0
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("target", "hud") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
-wave_zombie_counts = [2]
 max_zombies_per_spawn = 13
+disable_distance = 200
 hud = NodePath("../HUD")
 
 [node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
 position = Vector2(-136, -53)
 
 [node name="SpawnPoint1" type="Node2D" parent="WaveManager"]
-position = Vector2(-80, 218)
+position = Vector2(73, 186)
 
 [node name="SpawnPoint2" type="Node2D" parent="WaveManager"]
-position = Vector2(359, 21)
+position = Vector2(328, 22)
 
 [node name="SpawnPoint3" type="Node2D" parent="WaveManager"]
-position = Vector2(-32, -291)
+position = Vector2(-29, -236)
 
 [node name="SpawnPoint4" type="Node2D" parent="WaveManager"]
-position = Vector2(337, -392)
+position = Vector2(198, -330)
 
 [node name="SpawnPoint5" type="Node2D" parent="WaveManager"]
-position = Vector2(435, 349)
+position = Vector2(332, 249)
 
 [node name="SpawnPoint6" type="Node2D" parent="WaveManager"]
-position = Vector2(92, 321)
+position = Vector2(242, 157)
 
 [node name="SpawnPoint7" type="Node2D" parent="WaveManager"]
-position = Vector2(-483, 130)
+position = Vector2(-454, 28)
 
 [node name="SpawnPoint8" type="Node2D" parent="WaveManager"]
-position = Vector2(472, -363)
+position = Vector2(-300, -124)
 
 [node name="HUD" parent="." instance=ExtResource("4_giyla")]
