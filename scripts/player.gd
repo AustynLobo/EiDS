@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 				bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
 				gun_timer.start()
 				gun.current_ammo -= 1
-				hud.update_ammo(gun.current_ammos)
+				hud.update_ammo(gun.current_ammo)
 	
 	if melee_attack_animation.is_playing():
 		gun.visible = false

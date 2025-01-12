@@ -21,9 +21,11 @@ zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_61sqs")]
+[node name="WaveManager" parent="." node_paths=PackedStringArray("target", "hud") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
+wave_zombie_counts = [1, 2, 3]
 max_zombies_per_spawn = 13
+hud = NodePath("../HUD")
 
 [node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
 position = Vector2(-253, -135)
