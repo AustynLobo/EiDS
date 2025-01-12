@@ -8,6 +8,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_i5jqg")]
+position = Vector2(-1, 2)
 
 [node name="Player" parent="." node_paths=PackedStringArray("game", "hud") instance=ExtResource("1_m6nq7")]
 position = Vector2(22, 0)
@@ -28,30 +29,30 @@ max_zombies_per_spawn = 13
 hud = NodePath("../HUD")
 
 [node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
-position = Vector2(-253, -135)
+position = Vector2(-136, -53)
 
 [node name="SpawnPoint1" type="Node2D" parent="WaveManager"]
 position = Vector2(-80, 218)
 
 [node name="SpawnPoint2" type="Node2D" parent="WaveManager"]
-position = Vector2(472, 0)
+position = Vector2(359, 21)
 
 [node name="SpawnPoint3" type="Node2D" parent="WaveManager"]
-position = Vector2(-214, -466)
+position = Vector2(-32, -291)
 
 [node name="SpawnPoint4" type="Node2D" parent="WaveManager"]
-position = Vector2(299, -322)
+position = Vector2(337, -392)
 
 [node name="SpawnPoint5" type="Node2D" parent="WaveManager"]
-position = Vector2(446, 458)
+position = Vector2(435, 349)
 
 [node name="SpawnPoint6" type="Node2D" parent="WaveManager"]
-position = Vector2(-3, 473)
+position = Vector2(92, 321)
 
 [node name="SpawnPoint7" type="Node2D" parent="WaveManager"]
 position = Vector2(-483, 130)
 
 [node name="SpawnPoint8" type="Node2D" parent="WaveManager"]
-position = Vector2(514, -502)
+position = Vector2(472, -363)
 
 [node name="HUD" parent="." instance=ExtResource("4_giyla")]
