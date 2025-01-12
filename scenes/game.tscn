@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6fivapgxnbi6" path="res://scenes/player.tscn" id="1_m6nq7"]
 [ext_resource type="PackedScene" uid="uid://whn2wd2dt6du" path="res://scenes/zombie.tscn" id="3_a3xod"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7im4d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prrtk"]
 texture = ExtResource("1_inrxc")
 0:0/0 = 0
 1:0/0 = 0
@@ -246,7 +246,7 @@ texture = ExtResource("1_inrxc")
 [sub_resource type="TileSet" id="TileSet_npiay"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
-sources/0 = SubResource("TileSetAtlasSource_7im4d")
+sources/0 = SubResource("TileSetAtlasSource_prrtk")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yslhh"]
 load_path = "res://.godot/imported/overworld_tileset_grass.png-a002b8040c2c3562b0371333606cc35f.ctex"

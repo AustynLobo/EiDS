@@ -74,8 +74,8 @@ shape = SubResource("RectangleShape2D_8n3rc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hgby3")
-animation = &"move"
-frame_progress = 0.983208
+animation = &"idle"
+frame_progress = 0.845675
 
 [node name="Gun" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_4vg5v")]
 scale = Vector2(0.8, 0.8)

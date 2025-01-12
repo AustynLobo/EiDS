@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw4euvjusnm28"]
+
+[ext_resource type="Script" path="res://sound_manager.gd" id="1_gpifp"]
+[ext_resource type="AudioStream" uid="uid://cm0ixehsrsosp" path="res://assets/Audio/background.wav" id="2_vyd64"]
+[ext_resource type="AudioStream" uid="uid://b02rqslxt5w3e" path="res://assets/Audio/hurt.wav" id="3_uqvpc"]
+[ext_resource type="AudioStream" uid="uid://dif4sgb4p0mkw" path="res://assets/Audio/magnumPistol.wav" id="4_hqwh8"]
+[ext_resource type="AudioStream" uid="uid://c4rrqqigl6j2q" path="res://assets/Audio/pistol.wav" id="5_wmsaa"]
+[ext_resource type="AudioStream" uid="uid://ddl2e1ujvhm0e" path="res://assets/Audio/zombie.wav" id="6_kqp4s"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_gpifp")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vyd64")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uqvpc")
+
+[node name="MagnumPistol" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hqwh8")
+
+[node name="Pistol" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wmsaa")
+
+[node name="Zombie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kqp4s")
