@@ -346,3 +346,5 @@ theme_override_font_sizes/font_size = 43
 text = "Exit Game"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="VBox/NewGame" to="VBox/NewGame" method="_on_pressed"]
