@@ -23,7 +23,7 @@ position_smoothing_speed = 10.0
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("target", "hud") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
-wave_zombie_counts = [1, 2, 3]
+wave_zombie_counts = [2]
 max_zombies_per_spawn = 13
 hud = NodePath("../HUD")
 

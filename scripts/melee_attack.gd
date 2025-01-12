@@ -33,8 +33,8 @@ func _physics_process(delta: float) -> void:
 				health_system.take_damage(damage)
 				var alive_after = health_system.is_alive()
 				if alive_before and not alive_after:
-					ammo_gained += 2
-		gun.add_ammo(min(ammo_gained, 4))
+					ammo_gained += 6
+		gun.add_ammo(min(ammo_gained, 6))
 	
 	if attack_animation.is_playing():
 		attack_animation.flip_v = mouse_vector.y < 0

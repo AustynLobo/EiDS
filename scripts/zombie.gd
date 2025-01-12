@@ -8,6 +8,12 @@ signal zombie_dead
 @export var target: Node2D
 @export var stopping_distance: float = 40.0
 
+@export var custom_attack_speed: float = -1
+@export var custom_attack_cooldown: float = -1
+@export var custom_max_health: float = -1
+@export var custom_damage: float = -1
+@export var custom_speed: float = -1
+
 @onready var health_system = $HealthSystem
 
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -30,11 +36,28 @@ var swipe_x
 func _ready() -> void:
 	target_health_system = target.get_node_or_null("HealthSystem")
 	swipe_x = _swipe_animation.position.x
+	
+	if custom_attack_speed > 0:
+		_attack_timer.wait_time = custom_attack_speed
+	if custom_attack_cooldown > 0:
+		_cooldown_timer.wait_time = custom_attack_cooldown
 
 	scale *= scale_factor
-	damage = damage + ((scale_factor - 1) * damage) / 1.5
-	speed = speed - ((scale_factor - 1) * speed) / 0.8
-	health_system.set_max_health(health_system.max_health + ((scale_factor - 1) * health_system.max_health) / 0.8 - 50)
+	
+	if custom_damage > 0:
+		damage = custom_damage
+	else:
+		damage = damage + ((scale_factor - 1) * damage) / 1.5
+		
+	if custom_speed > 0:
+		speed = custom_speed
+	else:
+		speed = speed - ((scale_factor - 1) * speed) / 0.8
+		
+	if custom_max_health > 0:
+		health_system.set_max_health(custom_max_health)
+	else:
+		health_system.set_max_health(health_system.max_health + ((scale_factor - 1) * health_system.max_health) / 0.8 - 50)
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(target) and not is_attacking:

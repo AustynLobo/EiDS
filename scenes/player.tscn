@@ -125,6 +125,7 @@ pitch_scale = 1.31
 
 [node name="MeleeAttack" type="Node2D" parent="."]
 script = ExtResource("6_4erya")
+damage = 30
 
 [node name="AttackAnimation" type="AnimatedSprite2D" parent="MeleeAttack"]
 scale = Vector2(0.692982, 0.9375)

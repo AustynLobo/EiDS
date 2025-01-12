@@ -6,6 +6,8 @@ extends CanvasLayer
 @onready var wave_zombies_label: Label = $WaveZombiesLabel
 @onready var wave_end_label: Label = $WaveEndLabel
 
+var is_boss_wave = false
+
 var health = 0
 var max_health = 0
 
@@ -17,6 +19,9 @@ var max_waves = 0
 
 var zombies_killed = 0
 var max_zombies = 0
+
+var boss_health = 0
+var boss_max_health = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,11 +47,17 @@ func update_ammo_label():
 
 func update_wave_label():
 	if is_instance_valid(wave_label):
-		wave_label.text = "Wave: " + str(current_wave) + "/" + str(max_waves)
+		if is_boss_wave:
+			wave_label.text = "Austyn, Destroyer of Worlds"
+		else:
+			wave_label.text = "Wave: " + str(current_wave) + "/" + str(max_waves)
 
 func update_wave_zombies_label():
 	if is_instance_valid(wave_zombies_label):
-		wave_zombies_label.text = "Zombies killed: " + str(zombies_killed) + "/" + str(max_zombies)
+		if is_boss_wave:
+			wave_zombies_label.text = "Health: %.2f/%.2f" % [boss_health, boss_max_health]
+		else:
+			wave_zombies_label.text = "Zombies killed: " + str(zombies_killed) + "/" + str(max_zombies)
 
 func update_health(amount):
 	health = amount
@@ -78,6 +89,14 @@ func update_zombies_killed(amount):
 
 func update_max_zombies(amount):
 	max_zombies = amount
+	update_wave_zombies_label()
+
+func update_boss_health(amount):
+	boss_health = amount
+	update_wave_zombies_label()
+
+func update_boss_max_health(amount):
+	boss_max_health = amount
 	update_wave_zombies_label()
 
 func trigger_wave_complete_label(completed_wave):

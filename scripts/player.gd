@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_health_system_health_depleted() -> void:
 	if camera:
-		self.remove_child(camera)		
+		self.remove_child(camera)
 		get_parent().add_child(camera)
 		camera.global_position = global_position
 	
