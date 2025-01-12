@@ -5,7 +5,7 @@
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5tpfy")
-tips = Array[String](["Press LMB to shoot.", "Press SPACE to melee attack.", "Melee attacks give more ammo and health.", "Kill the boss at the end of the waves to win."])
+tips = Array[String](["Press LMB to shoot.", "Press SPACE to melee attack.", "Melee kills give more ammo and health.", "Kill the boss at the end of the waves to win.", "Tip: Soften them up with bullets before engaging in melee!", "Try to beat the author time: 02:53! ;D"])
 
 [node name="HealthLabel" type="Label" parent="."]
 anchors_preset = -1
