@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://b0xhf7dvjax3r"]
+[gd_scene load_steps=11 format=4 uid="uid://b0xhf7dvjax3r"]
 
 [ext_resource type="FontFile" uid="uid://p4ufrjibidqs" path="res://assets/SRAFreePixelFontPack/PixelMiddle.ttf" id="1_2ig5k"]
 [ext_resource type="Texture2D" uid="uid://b37iwxrxgx6a1" path="res://assets/TilesetGrass/overworld_tileset_grass.png" id="1_oua1k"]
 [ext_resource type="Texture2D" uid="uid://c0icjpb8fwiro" path="res://assets/Apocalypse Character Pack/Player/Idle.png" id="2_07gbk"]
 [ext_resource type="Script" path="res://UI/new_game.gd" id="2_md1x6"]
+[ext_resource type="Script" path="res://UI/load_game.gd" id="5_2snta"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2f6u"]
 texture = ExtResource("1_oua1k")
@@ -338,6 +339,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_2ig5k")
 theme_override_font_sizes/font_size = 43
 text = "credits"
+script = ExtResource("5_2snta")
 
 [node name="ExitGame" type="Button" parent="VBox"]
 layout_mode = 2
@@ -346,3 +348,5 @@ theme_override_font_sizes/font_size = 43
 text = "Exit Game"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="VBox/LoadGame" to="VBox/LoadGame" method="_on_pressed"]
