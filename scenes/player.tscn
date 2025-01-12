@@ -141,3 +141,4 @@ shape = SubResource("CircleShape2D_hgdgi")
 stream = ExtResource("13_frq4a")
 
 [connection signal="health_depleted" from="HealthSystem" to="." method="_on_health_system_health_depleted"]
+[connection signal="took_damage" from="HealthSystem" to="." method="_on_health_system_took_damage"]

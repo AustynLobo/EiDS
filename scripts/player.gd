@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 var bullet_TSCN = preload("res://scenes/bullet.tscn")
 @export var game : Node2D
+@export var hud: CanvasLayer
 
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
@@ -12,10 +13,14 @@ var bullet_TSCN = preload("res://scenes/bullet.tscn")
 
 @onready var melee_attack_animation = $MeleeAttack/AttackAnimation
 
+@onready var health_system = $HealthSystem
+
 var camera: Camera2D
 
 func _ready() -> void:
 	camera = get_node_or_null("Camera2D")
+	hud.update_health(health_system.current_health)
+	hud.update_max_health(health_system.max_health)
 
 func _physics_process(delta: float) -> void:
 	if not melee_attack_animation.is_playing() and Input.is_action_just_pressed("shoot"):
@@ -28,7 +33,7 @@ func _physics_process(delta: float) -> void:
 				bullet_ins.direction = Vector2.RIGHT.rotated(gun.rotation)
 				gun_timer.start()
 				gun.current_ammo -= 1
-		print(gun.current_ammo)
+				hud.update_ammo(gun.current_ammos)
 	
 	if melee_attack_animation.is_playing():
 		gun.visible = false
@@ -57,3 +62,8 @@ func _on_health_system_health_depleted() -> void:
 		camera.global_position = global_position
 	
 	queue_free()
+
+
+func _on_health_system_took_damage() -> void:
+	hud.update_health(health_system.current_health)
+	$PlayerHurt.play()

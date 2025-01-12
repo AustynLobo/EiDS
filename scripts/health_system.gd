@@ -6,6 +6,7 @@ extends Node2D
 @onready var invulnerability_timer = $InvulnerabilityTimer
 
 signal health_depleted
+signal took_damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,12 +26,14 @@ func take_damage(damage: float) -> float:
 	var new_health = clamp(current_health - damage, 0, max_health)
 	var damage_taken = current_health - new_health
 	current_health = new_health
-	$PlayerHurt.play()
 	
 	if current_health == 0:
 		health_depleted.emit()
 	
 	invulnerability_timer.start()
+	
+	took_damage.emit()
+	
 	return damage_taken
 
 func set_max_health(amount: float):

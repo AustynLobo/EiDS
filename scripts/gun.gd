@@ -9,9 +9,13 @@ extends Node2D
 
 @onready var current_ammo = max_ammo / 2
 
+var hud
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	hud = player.hud
+	hud.update_ammo(current_ammo)
+	hud.update_max_ammo(max_ammo)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,4 +31,4 @@ func _physics_process(delta: float) -> void:
 	
 func add_ammo(amount):
 	current_ammo = clamp(current_ammo + amount, 0, max_ammo)
-	print(current_ammo)
+	hud.update_ammo(current_ammo)
