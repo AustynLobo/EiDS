@@ -5,6 +5,7 @@
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5tpfy")
+tips = Array[String](["Press LMB to shoot.", "Press SPACE to melee attack.", "Melee attacks give more ammo and health.", "Kill the boss at the end of the waves to win."])
 
 [node name="HealthLabel" type="Label" parent="."]
 anchors_preset = -1
@@ -94,4 +95,44 @@ vertical_alignment = 1
 wait_time = 3.0
 one_shot = true
 
+[node name="Stopwatch" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 6.0
+offset_right = -7.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+
+[node name="TipLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -23.0
+offset_right = 283.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_iyvct")
+theme_override_font_sizes/font_size = 40
+text = "This is a tip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayTimer" type="Timer" parent="TipLabel"]
+wait_time = 5.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="TipLabel"]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="WaveEndLabel/Timer" to="." method="_on_wave_end_timer_timeout"]
+[connection signal="timeout" from="TipLabel/DisplayTimer" to="." method="_on_display_timer_timeout"]
+[connection signal="timeout" from="TipLabel/WaitTimer" to="." method="_on_tip_wait_timer_timeout"]

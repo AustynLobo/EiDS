@@ -133,10 +133,10 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 
 func _on_health_system_health_depleted() -> void:
-	if randf() > 0.5:
-		target.get_node("Gun").add_ammo(randi_range(2, 6))
+	if randf() > 0.8:
+		target.get_node("Gun").add_ammo(randi_range(1, 3))
 	
 	if randf() > 0.5:
-		target.get_node("HealthSystem").heal(randi_range(10, 15))
+		target.get_node("HealthSystem").heal(randi_range(3, 7))
 	zombie_dead.emit()
 	queue_free()

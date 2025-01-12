@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var target: Node2D
-@export var wave_zombie_counts = [15, 25, 35]
+@export var wave_zombie_counts: Array[int] = [15, 25, 35]
 @export var max_zombies_per_spawn = 10
 @export var max_zombies_at_once = 25
 @export var disable_distance = 400
@@ -19,7 +19,7 @@ extends Node2D
 var current_wave = 0
 
 @export var hud: CanvasLayer
-
+@export var game_over: CanvasLayer
 var spawned_zombies = []
 var killed_zombies = []
 
@@ -93,6 +93,7 @@ func spawn_boss():
 	boss_zombie.custom_speed = boss_speed
 	
 	boss_zombie.zombie_dead.connect(_on_zombie_dead)
+	boss_zombie.zombie_dead.connect(_on_boss_zombie_dead)
 	
 	boss_zombie_health_system = boss_zombie.get_node("HealthSystem")
 	boss_zombie_health_system.took_damage.connect(_on_boss_damage_taken)
@@ -132,6 +133,7 @@ func _on_zombie_dead() -> void:
 	
 	if is_boss_wave():
 		return
+
 		
 	if (killed_zombies[current_wave] >= wave_zombie_counts[current_wave]):
 		hud.trigger_wave_complete_label(current_wave + 1)
@@ -143,3 +145,6 @@ func _on_boss_damage_taken() -> void:
 		hud.update_boss_health(boss_zombie_health_system.current_health)
 	else:
 		hud.update_boss_health(0)
+
+func _on_boss_zombie_dead():
+	game_over.display("You Win!")

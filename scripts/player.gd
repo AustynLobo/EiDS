@@ -6,6 +6,7 @@ extends CharacterBody2D
 var bullet_TSCN = preload("res://scenes/bullet.tscn")
 @export var game : Node2D
 @export var hud: CanvasLayer
+@export var game_over: CanvasLayer
 
 @onready var gun = $Gun
 @onready var muzzle = $Gun/Muzzle
@@ -62,6 +63,7 @@ func _on_health_system_health_depleted() -> void:
 		camera.global_position = global_position
 	
 	queue_free()
+	game_over.display("You Died!")
 
 
 func _on_health_system_took_damage() -> void:

@@ -1,32 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://boon40uj7183r"]
+[gd_scene load_steps=6 format=3 uid="uid://boon40uj7183r"]
 
 [ext_resource type="PackedScene" uid="uid://wedxcuohp3q2" path="res://scenes/map.tscn" id="1_i5jqg"]
 [ext_resource type="PackedScene" uid="uid://b6fivapgxnbi6" path="res://scenes/player.tscn" id="1_m6nq7"]
 [ext_resource type="PackedScene" uid="uid://4d000w0qhyhj" path="res://scenes/wave_manager.tscn" id="3_61sqs"]
 [ext_resource type="PackedScene" uid="uid://bpu8xb3i4ujqv" path="res://scenes/hud.tscn" id="4_giyla"]
+[ext_resource type="PackedScene" uid="uid://cakvwpggribxl" path="res://scenes/game_over.tscn" id="5_c8lej"]
 
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_i5jqg")]
 position = Vector2(-1, 2)
 
-[node name="Player" parent="." node_paths=PackedStringArray("game", "hud") instance=ExtResource("1_m6nq7")]
+[node name="Player" parent="." node_paths=PackedStringArray("game", "hud", "game_over") instance=ExtResource("1_m6nq7")]
 position = Vector2(22, 0)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 game = NodePath("..")
 hud = NodePath("../HUD")
+game_over = NodePath("../GameOver")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("target", "hud") instance=ExtResource("3_61sqs")]
+[node name="WaveManager" parent="." node_paths=PackedStringArray("target", "hud", "game_over") instance=ExtResource("3_61sqs")]
 target = NodePath("../Player")
-max_zombies_per_spawn = 13
+wave_zombie_counts = Array[int]([15, 20, 25])
+max_zombies_at_once = 15
 disable_distance = 200
+boss_scale = 3.5
+boss_damage = 70.0
+boss_speed = 20.0
+boss_attack_cooldown = 2.0
+boss_attack_speed = 1.4
 hud = NodePath("../HUD")
+game_over = NodePath("../GameOver")
 
 [node name="SpawnPoint0" type="Node2D" parent="WaveManager"]
 position = Vector2(-136, -53)
@@ -56,3 +65,5 @@ position = Vector2(-454, 28)
 position = Vector2(-300, -124)
 
 [node name="HUD" parent="." instance=ExtResource("4_giyla")]
+
+[node name="GameOver" parent="." instance=ExtResource("5_c8lej")]

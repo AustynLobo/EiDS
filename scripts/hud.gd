@@ -5,6 +5,10 @@ extends CanvasLayer
 @onready var wave_label: Label = $WaveLabel
 @onready var wave_zombies_label: Label = $WaveZombiesLabel
 @onready var wave_end_label: Label = $WaveEndLabel
+@onready var stopwatch: Label = $Stopwatch
+@onready var tip_label: Label = $TipLabel
+
+@export var tips: Array[String]
 
 var is_boss_wave = false
 
@@ -23,6 +27,10 @@ var max_zombies = 0
 var boss_health = 0
 var boss_max_health = 0
 
+@onready var start_time = Time.get_ticks_msec()
+
+var current_tip = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_health_label()
@@ -31,10 +39,19 @@ func _ready() -> void:
 	update_wave_zombies_label()
 	
 	wave_end_label.visible = false
+	
+	tip_label.get_node("WaitTimer").start()
+	tip_label.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var time_elapsed = Time.get_ticks_msec() - start_time
+	
+	var seconds = time_elapsed / 1000
+	var minutes = seconds / 60
+	var remaining_seconds = seconds % 60
+	
+	stopwatch.text = "%02d:%02d" % [minutes, remaining_seconds]
 
 func update_health_label():
 	if is_instance_valid(health_label):
@@ -106,3 +123,16 @@ func trigger_wave_complete_label(completed_wave):
 
 func _on_wave_end_timer_timeout() -> void:
 	wave_end_label.visible = false
+
+
+func _on_tip_wait_timer_timeout() -> void:
+	if (current_tip < len(tips)):
+		tip_label.visible = true
+		tip_label.text = tips[current_tip]
+		tip_label.get_node("DisplayTimer").start()
+
+
+func _on_display_timer_timeout() -> void:
+	tip_label.visible = false
+	current_tip += 1
+	tip_label.get_node("WaitTimer").start()
