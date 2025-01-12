@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://b6i18s3gk5tdj"]
+[gd_scene load_steps=6 format=4 uid="uid://b6i18s3gk5tdj"]
 
 [ext_resource type="FontFile" uid="uid://p4ufrjibidqs" path="res://assets/SRAFreePixelFontPack/PixelMiddle.ttf" id="1_p36jo"]
 [ext_resource type="Texture2D" uid="uid://b37iwxrxgx6a1" path="res://assets/TilesetGrass/overworld_tileset_grass.png" id="2_1v6c0"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="3_qs1al"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2yb8"]
 texture = ExtResource("2_1v6c0")
@@ -276,17 +277,25 @@ theme_override_font_sizes/bold_font_size = 200
 bbcode_enabled = true
 text = "[center][b]CREDITS[/b][/center]"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 686.248
+offset_right = 614.0
+offset_bottom = 785.248
+theme_override_fonts/font = ExtResource("1_p36jo")
+theme_override_font_sizes/font_size = 100
+text = "BACK"
+flat = true
+script = ExtResource("3_qs1al")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.892
-anchor_top = 0.951
-anchor_right = 0.892
-anchor_bottom = 0.951
-offset_left = -1216.58
-offset_top = -198.804
-offset_right = -559.584
-offset_bottom = 82.1961
+offset_left = -188.996
+offset_top = 387.248
+offset_right = 468.0
+offset_bottom = 668.248
 theme_override_fonts/font = ExtResource("1_p36jo")
 theme_override_font_sizes/font_size = 79
 text = "created and designed by:
@@ -299,14 +308,14 @@ uppercase = true
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 502.0
+offset_left = 492.0
 offset_top = 394.248
-offset_right = 1077.0
-offset_bottom = 543.248
+offset_right = 1387.0
+offset_bottom = 595.248
 theme_override_fonts/font = ExtResource("1_p36jo")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 75
 text = "Austyn, Midhun and kunting 
-cuddleebug
+cuddleebug, nyknck, mikiz, creazila
 nightwolfcfm, michorvath
 "
 uppercase = true
@@ -314,3 +323,5 @@ uppercase = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(534, 350.248)
 zoom = Vector2(0.7, 0.7)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
