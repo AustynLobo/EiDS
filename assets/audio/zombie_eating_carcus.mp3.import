@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cflg56tmuxwtp"
-path="res://.godot/imported/zombie_eating_carcus.mp3-046b9eae14a25ac64daef27297c001d7.mp3str"
+path="res://.godot/imported/zombie_eating_carcus.mp3-0ebf938515dd138f2b569366bcdcc57a.mp3str"
 
 [deps]
 
-source_file="res://assets/Audio/zombie_eating_carcus.mp3"
-dest_files=["res://.godot/imported/zombie_eating_carcus.mp3-046b9eae14a25ac64daef27297c001d7.mp3str"]
+source_file="res://assets/audio/zombie_eating_carcus.mp3"
+dest_files=["res://.godot/imported/zombie_eating_carcus.mp3-0ebf938515dd138f2b569366bcdcc57a.mp3str"]
 
 [params]
 
