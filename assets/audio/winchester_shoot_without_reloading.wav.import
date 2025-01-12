@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://camimmetqp2cv"
-path="res://.godot/imported/winchester_shoot_without_reloading.wav-e563e438acf3dd189393540ccb1c94a0.sample"
+path="res://.godot/imported/winchester_shoot_without_reloading.wav-d818ca34596de2e36e718186b235c95c.sample"
 
 [deps]
 
-source_file="res://assets/audio/winchester_shoot_without_reloading.wav"
-dest_files=["res://.godot/imported/winchester_shoot_without_reloading.wav-e563e438acf3dd189393540ccb1c94a0.sample"]
+source_file="res://assets/Audio/winchester_shoot_without_reloading.wav"
+dest_files=["res://.godot/imported/winchester_shoot_without_reloading.wav-d818ca34596de2e36e718186b235c95c.sample"]
 
 [params]
 

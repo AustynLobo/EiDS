@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dvg40hymbndu1"
-path="res://.godot/imported/win94_shoot_with_reloading.wav-506066b767ed0c18953b04f4f7f53ebc.sample"
+path="res://.godot/imported/win94_shoot_with_reloading.wav-968cac1f23f5b8c0a32c2a8a0b45752c.sample"
 
 [deps]
 
-source_file="res://assets/audio/win94_shoot_with_reloading.wav"
-dest_files=["res://.godot/imported/win94_shoot_with_reloading.wav-506066b767ed0c18953b04f4f7f53ebc.sample"]
+source_file="res://assets/Audio/win94_shoot_with_reloading.wav"
+dest_files=["res://.godot/imported/win94_shoot_with_reloading.wav-968cac1f23f5b8c0a32c2a8a0b45752c.sample"]
 
 [params]
 
