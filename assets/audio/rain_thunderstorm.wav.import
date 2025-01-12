@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnsrqop3ebseo"
-path="res://.godot/imported/rain_thunderstorm.wav-091f69174488a1005b3d19b7f46c4fa4.sample"
+path="res://.godot/imported/rain_thunderstorm.wav-3d9a81a6ef125c3f206b6feff9979d83.sample"
 
 [deps]
 
-source_file="res://assets/audio/rain_thunderstorm.wav"
-dest_files=["res://.godot/imported/rain_thunderstorm.wav-091f69174488a1005b3d19b7f46c4fa4.sample"]
+source_file="res://assets/Audio/rain_thunderstorm.wav"
+dest_files=["res://.godot/imported/rain_thunderstorm.wav-3d9a81a6ef125c3f206b6feff9979d83.sample"]
 
 [params]
 
